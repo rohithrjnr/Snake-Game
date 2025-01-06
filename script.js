@@ -12,14 +12,24 @@ let direction = "RIGHT";
 let score = 0;
 let speed = 120;
 let gameInterval;
+let paused = false;
+let gameOverDisplay = document.getElementById("gameOver");
 
 // Google Form URL to submit high scores
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/<your-form-id>/formResponse"; // Replace with actual form ID
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd8oX7iBdx06N6LAfd2tuV6WYeN6FSpVfydFqtzW9KTYolwrg/formResponse"; // Replace with actual form ID
 
 // Randomize food position
 function randomPosition() {
     return Math.floor(Math.random() * (canvas.width / boxSize)) * boxSize;
 }
+
+window.addEventListener("blur", () => {
+    if (!paused) togglePause(true);
+});
+
+window.addEventListener("focus", () => {
+    if (paused && gameOverDisplay.style.display === "none") togglePause(false);
+});
 
 // Draw Snake
 function drawSnake() {
@@ -44,7 +54,7 @@ function moveSnake() {
     if (direction === "UP") head.y -= boxSize;
     if (direction === "DOWN") head.y += boxSize;
     if (direction === "LEFT") head.x -= boxSize;
-    if (direction === "RIGHT") head.x += boxSize;
+    if (direction === "RIGHT") head.x += boxSize;  
 
     // Game Over condition
     if (
@@ -76,6 +86,13 @@ document.addEventListener("keydown", event => {
     if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
     if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
     if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    if (event.key === "W" && direction !== "DOWN") direction = "UP";
+    if (event.key === "S" && direction !== "UP") direction = "DOWN";
+    if (event.key === "A" && direction !== "RIGHT") direction = "LEFT";
+    if (event.key === "D" && direction !== "LEFT") direction = "RIGHT";  
+    if (event.key === "Enter" && gameOverDisplay.style.display === "block") {
+            restartGame();
+        }  
 });
 
 // Restart Game
