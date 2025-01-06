@@ -1,0 +1,100 @@
+body {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+canvas {
+    border: 5px solid #16a085;
+    border-radius: 15px;
+    background: #2c3e50;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    max-height: 90%;
+    margin-bottom: 15px;
+}
+
+#score {
+    margin: 10px;
+    font-size: 2em;
+    text-shadow: 2px 2px #34495e;
+    text-align: center;
+}
+
+#gameOver {
+    color: red;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    background: linear-gradient(45deg, #16a085, #1abc9c);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #1abc9c, #16a085);
+    box-shadow: 0px 0px 10px #1abc9c;
+}
+
+#saveHighScoreModal,
+#highScoresModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #34495e;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: #ecf0f1;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    color: #ecf0f1;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px solid #16a085;
+    width: 80%;
+}

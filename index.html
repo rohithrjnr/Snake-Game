@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Snake Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Responsive Snake Game</h1>
+    <canvas id="gameCanvas"></canvas>
+    <div id="score">Score: 0</div>
+    <div id="gameOver">Game Over</div>
+    <div id="buttons">
+        <button id="restartButton">Restart</button>
+        <button id="viewHighScoresButton">View High Scores</button>
+    </div>
+
+    <!-- Save High Score Modal -->
+    <div id="overlay"></div>
+    <div id="saveHighScoreModal">
+        <h2>New High Score!</h2>
+        <p>Your Score: <span id="highScoreDisplay"></span></p>
+        <input type="text" id="playerName" placeholder="Enter your name" />
+        <button id="submitHighScoreButton">Submit High Score</button>
+        <button id="cancelHighScoreButton">Cancel</button>
+    </div>
+
+    <!-- View High Scores Modal -->
+    <div id="highScoresModal">
+        <h2>High Scores</h2>
+        <ul id="highScoresList"></ul>
+        <button id="closeHighScoresButton">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
